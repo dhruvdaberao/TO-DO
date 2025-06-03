@@ -2,43 +2,48 @@
 export const FunMessages = () => {
   const messages = [
     {
-      emoji: "🎂",
-      text: "Another year older, another year more awesome!",
-      color: "text-yellow-300"
+      emoji: "🎮",
+      text: "Level 27 unlocked! New skills: Adult responsibilities (optional)",
+      color: "text-cyan-300"
     },
     {
-      emoji: "🎈", 
-      text: "May your day be filled with happiness and your year with joy!",
-      color: "text-pink-300"
-    },
-    {
-      emoji: "🎁",
-      text: "Birthdays are nature's way of telling us to eat more cake!",
+      emoji: "⚡", 
+      text: "Warning: This birthday may cause excessive awesomeness!",
       color: "text-blue-300"
     },
     {
-      emoji: "🌟",
-      text: "You're not getting older, you're just becoming a classic!",
-      color: "text-green-300"
+      emoji: "🚀",
+      text: "27 years of being ridiculously cool. Mission: Continue!",
+      color: "text-indigo-300"
     },
     {
-      emoji: "🎊",
-      text: "Hope your birthday is as special as you are to everyone!",
-      color: "text-purple-300"
+      emoji: "🎯",
+      text: "Fun Fact: You're now 27 years closer to becoming a wizard!",
+      color: "text-emerald-300"
+    },
+    {
+      emoji: "⭐",
+      text: "Breaking News: Local legend turns 27, world celebrates!",
+      color: "text-amber-300"
+    },
+    {
+      emoji: "🔥",
+      text: "Sangram at 27: Still setting the bar ridiculously high!",
+      color: "text-orange-300"
     }
   ];
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-16">
       <h2 className="text-5xl font-bold text-white text-center mb-16 animate-fade-in">
-        🎉 Birthday Wishes & Fun Stuff! 🎉
+        🎊 Epic Birthday Vibes & Random Awesomeness! 🎊
       </h2>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {messages.map((message, index) => (
           <div
             key={index}
-            className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20 hover:scale-105 hover:bg-white/20 transition-all duration-300 animate-fade-in"
+            className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/20 hover:scale-105 hover:bg-white/20 transition-all duration-300 animate-fade-in hover:border-cyan-400/50"
             style={{ animationDelay: `${index * 0.2}s` }}
           >
             <div className="text-6xl text-center mb-4 animate-bounce" style={{ animationDelay: `${index * 0.3}s` }}>
@@ -52,8 +57,8 @@ export const FunMessages = () => {
       </div>
       
       <div className="text-center mt-16">
-        <div className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white font-bold text-2xl py-4 px-8 rounded-full inline-block shadow-2xl animate-pulse">
-          🎂 Let's Party! Time to Celebrate! 🎂
+        <div className="bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-700 text-white font-bold text-2xl py-4 px-8 rounded-full inline-block shadow-2xl animate-pulse hover:scale-105 transition-transform">
+          🎂 Let's Make This Birthday LEGENDARY! 🎂
         </div>
       </div>
     </div>
