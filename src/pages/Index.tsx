@@ -1,7 +1,7 @@
 
 import { BirthdayHero } from "@/components/BirthdayHero";
 import { VideoSection } from "@/components/VideoSection";
-import { FunMessages } from "@/components/FunMessages";
+import { CosmicBirthday } from "@/components/CosmicBirthday";
 import { PartyDecorations } from "@/components/PartyDecorations";
 import { Confetti } from "@/components/Confetti";
 
@@ -14,7 +14,7 @@ const Index = () => {
       <div className="relative z-10">
         <BirthdayHero />
         <VideoSection />
-        <FunMessages />
+        <CosmicBirthday />
       </div>
     </div>
   );
