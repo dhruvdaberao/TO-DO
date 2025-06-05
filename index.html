@@ -1,24 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>happy-birthday-burst</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Sangram!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(180deg, #f8f1eb 0%, #fcefe6 100%);
+            color: #333;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 15px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #34495e;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: 25px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+        .play-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: #ff6f61;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+        .play-button::before {
+            content: '';
+            border-left: 20px solid #fff;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+        }
+        .confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        @media (max-width: 500px) {
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 1rem;
+                padding: 0 8px;
+            }
+            .video-container {
+                max-width: 95%;
+                margin: 15px auto;
+            }
+            .play-button {
+                width: 40px;
+                height: 40px;
+            }
+            .play-button::before {
+                border-left: 12px solid #fff;
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="confetti-canvas" id="confetti"></canvas>
+    <div class="container">
+        <h1>Happy 27th Birthday, Sangram! 🎉</h1>
+        <p>You’re the best friend anyone could ask for 😄. Whether we’re [chilling at our favorite café] or [laughing over that camping trip], you make every moment awesome 🥳. So grateful for you!</p>
+        <div class="video-container">
+            <video id="birthdayVideo" controls>
+                <source src="sangram-birthday-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="play-overlay" id="playOverlay">
+                <div class="play-button"></div>
+            </div>
+        </div>
+        <p>Here’s to you, Sangram! 🥳🎂</p>
+    </div>
 
-    <meta property="og:title" content="happy-birthday-burst" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Wait for the page and scripts to load
+        window.addEventListener('load', () => {
+            // Check if confetti library loaded
+            if (typeof confetti === 'undefined') {
+                console.error('Confetti library not loaded. Please ensure the CDN is accessible or try an alternative CDN: https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.6.0/confetti.min.js');
+                return;
+            }
+            console.log('Confetti library loaded successfully.');
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+            // Continuous falling confetti
+            const canvas = document.getElementById('confetti');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+            function fallingConfetti() {
+                confetti({
+                    particleCount: 4,
+                    spread: 180,
+                    origin: { y: -0.2 },
+                    colors: ['#ff6f61', '#facc15', '#a7f3d0', '#ffb3cc'],
+                    shapes: ['circle', 'star'],
+                    gravity: 0.15,
+                    scalar: 0.4 + Math.random() * 0.2,
+                    ticks: 300
+                });
+                requestAnimationFrame(fallingConfetti);
+            }
+
+            // Start confetti
+            fallingConfetti();
+
+            // Resize canvas on window resize
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        });
+
+        // Play button functionality
+        const video = document.getElementById('birthdayVideo');
+        const playOverlay = document.getElementById('playOverlay');
+        playOverlay.addEventListener('click', () => {
+            video.play();
+            playOverlay.classList.add('hidden');
+        });
+        video.addEventListener('play', () => {
+            playOverlay.classList.add('hidden');
+        });
+    </script>
+</body>
 </html>
